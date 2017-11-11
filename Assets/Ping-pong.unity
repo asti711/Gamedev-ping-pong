@@ -383,7 +383,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddleRigibody: {fileID: 1185312805}
+  paddleTransform: {fileID: 0}
+  ballTransform: {fileID: 0}
   force: 5
+  no: 2
+  controlled: 0
 --- !u!1 &1610323126
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +406,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!54 &1610323127
 Rigidbody:
@@ -495,7 +499,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddleRigibody: {fileID: 1610323127}
+  paddleTransform: {fileID: 0}
+  ballTransform: {fileID: 0}
   force: 5
+  no: 1
+  controlled: 1
 --- !u!1 &1689993233
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,10 +605,9 @@ GameObject:
   - component: {fileID: 1938754644}
   - component: {fileID: 1938754643}
   - component: {fileID: 1938754647}
-  - component: {fileID: 1938754648}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -684,17 +691,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1938754648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1938754642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0db884ce6147a94b85134e98d100c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballRigidBody: {fileID: 1938754647}
-  ballTransform: {fileID: 0}
-  isPlaying: 0

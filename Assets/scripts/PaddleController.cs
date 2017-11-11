@@ -5,12 +5,20 @@ using UnityEngine;
 public class PaddleController : MonoBehaviour {
 
     public Rigidbody paddleRigibody;
-    public float force = 5.0f; 
+    public Transform paddleTransform;
+
+    public Transform ballTransform;
+
+
+    public float force = 5.0f;
+    public int no;
+    public bool controlled;
 
     // Use this for initialization
     void Start()
     {
-
+        ballTransform = GameObject.FindGameObjectWithTag("Ball").GetComponent<Transform>();
+        paddleTransform = this.gameObject.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -21,11 +29,29 @@ public class PaddleController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        CheckInput();
+        if (controlled)
+        {
+            CheckInput();
+        }
+        else
+        {
+            ComputerControl();
+        }
+
     }
 
+    public void ComputerControl()
+    {
+        if (ballTransform.position.y > paddleTransform.position.y)
+        {
+            moveUp();
+        }
+        if (ballTransform.position.y < paddleTransform.position.y)
+        {
+            moveDown();
+        }
+    }
 
-  
     public void CheckInput()
     {
         if (Input.GetKey(KeyCode.W))
