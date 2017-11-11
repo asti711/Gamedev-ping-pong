@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour {
 
+    public GameController gameController;
     public Rigidbody ballRigidBody;
     public Transform ballTransform; //determine position
     public bool isPlaying = false;
@@ -33,7 +34,19 @@ public class BallController : MonoBehaviour {
     {
         if (ballTransform.position.x < -9.3 || ballTransform.position.x > 9.3)
         {
+            int nScoredPlayer = 0;
             isPlaying = false;
+
+            if(ballTransform.position.x < 0)
+            {
+                nScoredPlayer = 2;
+            }
+            else
+            {
+                nScoredPlayer = 1;
+            }
+
+            gameController.managePlayerScore(nScoredPlayer);
             //остановить и поставить снова на позицию
             ResetBall();
         }
