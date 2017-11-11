@@ -12,7 +12,7 @@ public class PaddleController : MonoBehaviour {
 
     public float force = 5.0f;
     public int no;
-    public bool controlled;
+    public bool playerControl;
 
     // Use this for initialization
     void Start()
@@ -24,12 +24,15 @@ public class PaddleController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        Vector3 pos = paddleTransform.position;
+        pos.z = 0;
+        paddleTransform.position = pos;
     }
 
     void FixedUpdate()
     {
-        if (controlled)
+        
+        if (playerControl)
         {
             CheckInput();
         }
