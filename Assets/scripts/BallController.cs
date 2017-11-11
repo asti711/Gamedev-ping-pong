@@ -39,6 +39,11 @@ public class BallController : MonoBehaviour {
         }
     }
 
+    public void BallDirection()
+    {
+
+    }
+
     public void ResetBall()
     {
         ballRigidBody.velocity = Vector3.zero;
