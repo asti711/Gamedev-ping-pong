@@ -6,10 +6,16 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public BallController ballController;
+    public PaddleController firstPaddleController;
+    public PaddleController secondPaddleController;
 
     public Text scoreText;
     public Text winnerText;
+    public Text numOfPlayersText;
     public GameObject endGamePanel;
+    public GameObject menuPanel;
+
+    public int numOfPlayers = 1;
 
     public int firstPlayerScore = 0;
     public int secondPlayerScore = 0;
@@ -26,6 +32,13 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void StartGame()
+    {
+        endGamePanel.SetActive(false);
+        menuPanel.SetActive(false);
+        ballController.SetBallDirection(0);
     }
 
     public void updateScoreText()
@@ -91,6 +104,31 @@ public class GameController : MonoBehaviour
 
         ballController.ManageBallMove(0);
 
+    }
+
+
+
+
+    //menu
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
+
+    public void SwitchNumberOfRealPlayers()
+    {
+        if(numOfPlayers == 1)
+        {
+            numOfPlayers = 2;
+            secondPaddleController.playerControl = true;
+        }
+        else
+        {
+            numOfPlayers = 1;
+            secondPaddleController.playerControl = false;
+        }
+
+        numOfPlayersText.text = "Players: " + numOfPlayers;
     }
 
 }

@@ -9,9 +9,8 @@ public class PaddleController : MonoBehaviour {
 
     public Transform ballTransform;
 
-
     public float force = 5.0f;
-    public int no;
+    public int numPaddle;
     public bool playerControl;
 
     // Use this for initialization
@@ -24,9 +23,7 @@ public class PaddleController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = paddleTransform.position;
-        pos.z = 0;
-        paddleTransform.position = pos;
+
     }
 
     void FixedUpdate()
@@ -57,15 +54,31 @@ public class PaddleController : MonoBehaviour {
 
     public void CheckInput()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (numPaddle == 1)
         {
-            moveUp();
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                moveUp();
+            }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDown();
+            if (Input.GetKey(KeyCode.S))
+            {
+                moveDown();
+            }
         }
+        else 
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                moveUp();
+            }
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                moveDown();
+            }
+        }
+        
     }
 
     public void moveUp()
