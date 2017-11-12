@@ -102,10 +102,15 @@ public class BallController : MonoBehaviour {
             }
 
             gameController.ManagePlayerScore(numScoredPlayer);
+
             //остановить и поставить снова на позицию
             ResetBall();
 
-            SetBallDirection(numScoredPlayer);
+            if(gameController.wonGame == false)
+            {
+                SetBallDirection(numScoredPlayer);
+            }
+            
         }
     }
 

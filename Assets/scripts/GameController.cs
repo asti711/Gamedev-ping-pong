@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public BallController ballController;
+
     public Text scoreText;
     public Text winnerText;
+    public GameObject endGamePanel;
 
     public int firstPlayerScore = 0;
     public int secondPlayerScore = 0;
     public int winScore = 11;
+    public bool wonGame = false;
 
     // Use this for initialization
     void Start()
@@ -24,7 +28,7 @@ public class GameController : MonoBehaviour
 
     }
 
-    public void updateText()
+    public void updateScoreText()
     {
         scoreText.text = firstPlayerScore + " : " + secondPlayerScore;
     }
@@ -40,7 +44,7 @@ public class GameController : MonoBehaviour
             secondPlayerScore++;
         }
 
-        updateText();
+        updateScoreText();
 
         CheckIfOneWon();
     }
@@ -49,16 +53,20 @@ public class GameController : MonoBehaviour
     {
         if(firstPlayerScore >= winScore)
         {
+            wonGame = true;
             ManageEndGame(1);
         }
         else if(secondPlayerScore >= winScore)
         {
+            wonGame = true;
             ManageEndGame(2);
         }
     }
 
     public void ManageEndGame(int numPlayerWinner)
     {
+        endGamePanel.SetActive(true);
+
         ShowWinner(numPlayerWinner);
     }
 
@@ -68,4 +76,21 @@ public class GameController : MonoBehaviour
 
         winnerText.text = winMessage;
     }
+
+    public void Restart()
+    {
+        firstPlayerScore = 0;
+        secondPlayerScore = 0;
+        wonGame = false;
+        updateScoreText();
+
+        winnerText.text = "";
+        winnerText.enabled = false;
+
+        endGamePanel.SetActive(false);
+
+        ballController.ManageBallMove(0);
+
+    }
+
 }
