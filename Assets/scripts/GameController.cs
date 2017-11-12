@@ -6,9 +6,12 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public Text scoreText;
+    public Text winnerText;
 
     public int firstPlayerScore = 0;
     public int secondPlayerScore = 0;
+    public int winScore = 11;
+
     // Use this for initialization
     void Start()
     {
@@ -38,5 +41,31 @@ public class GameController : MonoBehaviour
         }
 
         updateText();
+
+        CheckIfOneWon();
+    }
+
+    public void CheckIfOneWon()
+    {
+        if(firstPlayerScore >= winScore)
+        {
+            ManageEndGame(1);
+        }
+        else if(secondPlayerScore >= winScore)
+        {
+            ManageEndGame(2);
+        }
+    }
+
+    public void ManageEndGame(int numPlayerWinner)
+    {
+        ShowWinner(numPlayerWinner);
+    }
+
+    public void ShowWinner(int numPlayerWinner)
+    {
+        string winMessage = "Player " + numPlayerWinner + " wins the game!";
+
+        winnerText.text = winMessage;
     }
 }

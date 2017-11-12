@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour {
 
     public GameController gameController;
+
     public Rigidbody ballRigidBody;
     public Transform ballTransform; //determine position
     public bool isPlaying = false;
@@ -13,7 +14,7 @@ public class BallController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ballTransform = this.transform;
-        BallDirection(0);
+        SetBallDirection(0);
 	}
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class BallController : MonoBehaviour {
         
 	}
 
-    public void BallDirection(int scoredPlayer)
+    public void SetBallDirection(int scoredPlayer)
     {
         if (scoredPlayer == 1)
         {
@@ -87,9 +88,10 @@ public class BallController : MonoBehaviour {
     {
         if (ballTransform.position.x < -9.3 || ballTransform.position.x > 9.3)
         {
-            int numScoredPlayer = 0;
+            
             isPlaying = false;
 
+            int numScoredPlayer = 0;
             if (ballTransform.position.x < 0)
             {
                 numScoredPlayer = 2;
@@ -103,7 +105,7 @@ public class BallController : MonoBehaviour {
             //остановить и поставить снова на позицию
             ResetBall();
 
-            BallDirection(numScoredPlayer);
+            SetBallDirection(numScoredPlayer);
         }
     }
 
