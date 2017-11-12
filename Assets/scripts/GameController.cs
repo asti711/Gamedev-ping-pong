@@ -110,6 +110,11 @@ public class GameController : MonoBehaviour
 
 
     //menu
+    public void GoToMenu()
+    {
+        menuPanel.SetActive(true);
+    }
+
     public void QuitApp()
     {
         Application.Quit();

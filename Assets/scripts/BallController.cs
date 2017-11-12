@@ -16,7 +16,7 @@ public class BallController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ballTransform = this.transform;
-    
+        
 	}
 
     // Update is called once per frame
