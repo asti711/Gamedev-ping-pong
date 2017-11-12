@@ -10,6 +10,8 @@ public class BallController : MonoBehaviour {
     public Transform ballTransform; //determine position
     public bool isPlaying = false;
     public Vector3 dirV;
+    public AudioSource ballAudioSource;
+    public AudioClip ballAudioClip;
 
 	// Use this for initialization
 	void Start () {
@@ -23,8 +25,12 @@ public class BallController : MonoBehaviour {
         {
             CheckInBoundaries();
         }
-        
-	}
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        ballAudioSource.PlayOneShot(ballAudioClip);
+    }
 
     public void SetBallDirection(int scoredPlayer)
     {
