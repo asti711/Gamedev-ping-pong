@@ -55,7 +55,7 @@ public class BallController : MonoBehaviour {
         }
         float angleY = GetRandomAngle();
         dirV = new Vector3(dirX, angleY);
-        BallMove();
+        MoveBall();
     }
 
     public float GetRandomAngle()
@@ -77,7 +77,7 @@ public class BallController : MonoBehaviour {
         return randomDir;
     }
 
-    public void BallMove()
+    public void MoveBall()
     {
         ballRigidBody.AddForce(dirV, ForceMode.Impulse);
         isPlaying = true;
@@ -87,23 +87,23 @@ public class BallController : MonoBehaviour {
     {
         if (ballTransform.position.x < -9.3 || ballTransform.position.x > 9.3)
         {
-            int nScoredPlayer = 0;
+            int numScoredPlayer = 0;
             isPlaying = false;
 
             if (ballTransform.position.x < 0)
             {
-                nScoredPlayer = 2;
+                numScoredPlayer = 2;
             }
             else
             {
-                nScoredPlayer = 1;
+                numScoredPlayer = 1;
             }
 
-            gameController.managePlayerScore(nScoredPlayer);
+            gameController.ManagePlayerScore(numScoredPlayer);
             //остановить и поставить снова на позицию
             ResetBall();
 
-            BallDirection(nScoredPlayer);
+            BallDirection(numScoredPlayer);
         }
     }
 

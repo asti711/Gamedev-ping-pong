@@ -26,9 +26,9 @@ public class GameController : MonoBehaviour
         scoreText.text = firstPlayerScore + " : " + secondPlayerScore;
     }
 
-    public void managePlayerScore(int nScoredPlayer)
+    public void ManagePlayerScore(int numScoredPlayer)
     {
-        if (nScoredPlayer == 1)
+        if (numScoredPlayer == 1)
         {
             firstPlayerScore++;
         }
