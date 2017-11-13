@@ -38,6 +38,8 @@ public class GameController : MonoBehaviour
     {
         endGamePanel.SetActive(false);
         menuPanel.SetActive(false);
+        firstPaddleController.transform.position = new Vector3(-9.0f, 0, 0);
+        secondPaddleController.transform.position = new Vector3(9.0f, 0, 0);
         ballController.SetBallDirection(0);
     }
 
@@ -97,6 +99,9 @@ public class GameController : MonoBehaviour
         wonGame = false;
         updateScoreText();
 
+        firstPaddleController.transform.position = new Vector3(-9.0f, 0, 0);
+        secondPaddleController.transform.position = new Vector3(9.0f, 0, 0);
+
         winnerText.text = "";
         winnerText.enabled = false;
 
@@ -105,9 +110,6 @@ public class GameController : MonoBehaviour
         ballController.ManageBallMove(0);
 
     }
-
-
-
 
     //menu
     public void GoToMenu()

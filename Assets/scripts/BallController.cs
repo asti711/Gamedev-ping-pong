@@ -27,6 +27,8 @@ public class BallController : MonoBehaviour {
         }
     }
 
+
+
     void OnCollisionEnter(Collision collision)
     {
         ballAudioSource.PlayOneShot(ballAudioClip);
@@ -116,17 +118,12 @@ public class BallController : MonoBehaviour {
             {
                 SetBallDirection(numScoredPlayer);
             }
-            
         }
     }
-
-    
 
     public void ResetBall()
     {
         ballRigidBody.velocity = Vector3.zero;
         ballTransform.position = Vector3.zero;
-
-        
     }
 }
