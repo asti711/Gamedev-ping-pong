@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
 
     public void updateScoreText()
     {
-        scoreText.text = firstPlayerScore + " : " + secondPlayerScore;
+        scoreText.text = firstPlayerScore + " - " + secondPlayerScore;
     }
 
     public void ManagePlayerScore(int numScoredPlayer)
