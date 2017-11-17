@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PaddleController : MonoBehaviour {
+public class Paddle2Controller : MonoBehaviour {
 
     public Rigidbody paddleRigibody;
     public Transform paddleTransform;
@@ -10,7 +10,6 @@ public class PaddleController : MonoBehaviour {
     public Transform ballTransform;
 
     public float force = 5.0f;
-    public int numPaddle;
     public bool playerControl;
 
     // Use this for initialization
@@ -18,6 +17,7 @@ public class PaddleController : MonoBehaviour {
     {
         ballTransform = GameObject.FindGameObjectWithTag("Ball").GetComponent<Transform>();
         paddleTransform = this.gameObject.GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
@@ -28,7 +28,6 @@ public class PaddleController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        
         if (playerControl)
         {
             CheckInput();
@@ -54,30 +53,15 @@ public class PaddleController : MonoBehaviour {
 
     public void CheckInput()
     {
-        if (numPaddle == 1)
+        if (Input.GetKey(KeyCode.UpArrow))
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                moveUp();
-            }
-
-            if (Input.GetKey(KeyCode.S))
-            {
-                moveDown();
-            }
+            moveUp();
         }
-        else 
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                moveUp();
-            }
-
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                moveDown();
-            }
+           moveDown();
         }
+        
         
     }
 

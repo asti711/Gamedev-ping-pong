@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d13d7afe134f29d499593fff1a1b912b
+timeCreated: 1510570438
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Wormbox
+  fontNames:
+  - Wormbox
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a82c835ff58fd3a478d39bbf546d3ca7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

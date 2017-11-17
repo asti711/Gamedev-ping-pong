@@ -6,8 +6,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public BallController ballController;
-    public PaddleController firstPaddleController;
-    public PaddleController secondPaddleController;
+    public Paddle1Controller firstPaddleController;
+    public Paddle2Controller secondPaddleController;
 
     public Text scoreText;
     public Text winnerText;
@@ -111,7 +111,7 @@ public class GameController : MonoBehaviour
 
     }
 
-    //menu
+    //for menu
     public void GoToMenu()
     {
         menuPanel.SetActive(true);
