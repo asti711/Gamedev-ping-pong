@@ -15,6 +15,8 @@ public class BallController : MonoBehaviour {
     private float timePaddleContact = 0;
     private float timeWallContact = 0;
 
+   
+
     // Use this for initialization
     void Start () {
         ballTransform = this.transform;
@@ -29,6 +31,7 @@ public class BallController : MonoBehaviour {
             CountTimePaddleContact();
             CountTimeWallContact();
         }
+       
     }
     
     void OnCollisionEnter(Collision collision)
@@ -76,6 +79,7 @@ public class BallController : MonoBehaviour {
         float angleY = GetRandomAngle();
         dirV = new Vector3(dirX, angleY);
         MoveBall();
+        
     }
 
     public float GetRandomAngle()
