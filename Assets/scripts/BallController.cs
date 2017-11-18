@@ -84,7 +84,7 @@ public class BallController : MonoBehaviour {
 
     public float GetRandomAngle()
     {
-        return UnityEngine.Random.Range(0.25f, 0.75f);
+        return UnityEngine.Random.Range(-0.5f, 0.5f);
     }
 
     public int GetRandomDirection()
