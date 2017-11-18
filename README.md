@@ -2,4 +2,4 @@
 
 
 ##### Clone this repository: 
- `git clone https://github.com/eamanbekov/brick-breaker.git`
+ `https://github.com/asti711/Gamedev-ping-pong.git`
